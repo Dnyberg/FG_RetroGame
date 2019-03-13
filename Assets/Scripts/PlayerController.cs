@@ -6,22 +6,69 @@ public class PlayerController : MonoBehaviour
 {
 
     public int speed;
+    public int grounded;
+    public int jumpheight;
 
     private Rigidbody2D rb2d;
+    private bool moving = false;
+    private float t = 0.0f;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        Jump();
+    }
+
+    
     void FixedUpdate()
     {
       
-        Vector2 movement = new Vector2(1,0);
+       
 
-        rb2d.AddForce(movement * speed);
+        rb2d. transform.Translate(Vector3.right * Time.deltaTime * speed);
+    }
+
+    private void Jump()
+    {
+        if (grounded >= 1)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rb2d.velocity = new Vector2(0.0f, 1.0f * jumpheight);
+                moving = true;
+                t = 0.0f;
+                print("Jump");
+
+                if (moving)
+                {
+                   
+                    t = t + Time.deltaTime;
+                    if (t > 1.0f)
+                    {
+                        Debug.Log(gameObject.transform.position.y + " : " + t);
+                        t = 0.0f;
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.collider.CompareTag("Ground"))
+            grounded++;
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.collider.CompareTag("Ground"))
+            grounded--;
     }
 }
