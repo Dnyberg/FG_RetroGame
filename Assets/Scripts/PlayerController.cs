@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public int speed;
-    public int grounded;
+    [Tooltip ("1 = On ground and can jump, 0 = In air")]public int grounded;
     public int jumpheight;
 
     private Rigidbody2D rb2d;
