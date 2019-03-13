@@ -22,14 +22,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Jump();
+        
     }
 
     
     void FixedUpdate()
     {
-      
-       
 
+
+        
         rb2d. transform.Translate(Vector3.right * Time.deltaTime * speed);
     }
 
