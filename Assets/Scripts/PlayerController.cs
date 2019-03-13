@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public int speed;
+    public float speed;
     [Tooltip ("1 = On ground and can jump, 0 = In air")]public int grounded;
     public int jumpheight;
 
     private Rigidbody2D rb2d;
     private bool moving = false;
     private float t = 0.0f;
-
+    private Vector2 movement;
 
     void Start()
     {
@@ -29,10 +29,16 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
+        //Vector2 movement = new Vector2(1f, 0f);
+        //rb2d.AddForce(movement * speed);
+        //Debug.Log(movement * speed);
 
-        
         rb2d. transform.Translate(Vector3.right * Time.deltaTime * speed);
+        
+
+        //rb2d.velocity = new Vector2(speed, t);
     }
+
 
     private void Jump()
     {
@@ -44,6 +50,7 @@ public class PlayerController : MonoBehaviour
                 moving = true;
                 t = 0.0f;
                 print("Jump");
+               
 
                 if (moving)
                 {
