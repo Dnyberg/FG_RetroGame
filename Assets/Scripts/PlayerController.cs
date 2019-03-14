@@ -5,27 +5,78 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    [Header("Movement")]
     public float speed;
-    [Tooltip ("1 = On ground and can jump, 0 = In air")]public int grounded;
+    public float acceleration;
+    public bool grounded;
     public int jumpheight;
+    
+
+    [Header("Shooting")]
+    public string fireKey = "Fire1";
+    public GameObject bulletPrefab;
+    [SerializeField, Tooltip("Shots per minute.")] private float rateOfFire = 1f;
+    private float timeBetweenShots;
+    private float lastTimeFired;
 
     private Rigidbody2D rb2d;
     private bool moving = false;
     private float t = 0.0f;
     private Vector2 movement;
+    private bool hit;
 
-    void Start()
+    #region Properties
+
+    public float RateOfFire
     {
+        get { return rateOfFire; }
+        set
+        {
+            rateOfFire = value;
+            timeBetweenShots = 60f / rateOfFire;
+        }
+    }
+
+    #endregion Properties
+
+    void Awake()
+    {
+    
         rb2d = GetComponent<Rigidbody2D>();
+        RateOfFire = rateOfFire;
     }
 
     void Update()
     {
         Jump();
-        
+
+        if (Input.GetButton(fireKey))
+        {
+            
+            Shoot();
+        }
     }
 
-    
+    private void Shoot()
+    {
+        if (lastTimeFired + timeBetweenShots <= Time.time)
+        {
+         
+            Bullet bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity)?.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+              
+                bullet.Shoot();
+            }
+            else
+            {
+                Debug.Log("Bullet script missing.");
+            }
+
+            lastTimeFired = Time.time;
+        }
+    }
+
     void FixedUpdate()
     {
 
@@ -34,17 +85,26 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(movement * speed);
 
         rb2d. transform.Translate(Vector3.right * Time.deltaTime * speed);
+
+        speed = speed + acceleration;
         
 
         //rb2d.velocity = new Vector2(speed, t);
     }
 
+    private void Slow()
+    {
+       
+      
+         speed = speed - 1f;
+        
+    }
 
     private void Jump()
     {
-        if (grounded >= 1)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (grounded == true)
             {
                 rb2d.velocity = new Vector2(0.0f, 1.0f * jumpheight);
                 moving = true;
@@ -71,12 +131,28 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.collider.CompareTag("Ground"))
-            grounded++;
+        {
+        grounded = true;
+
+        }
+
+
+        if (col.collider.CompareTag("Obsticale"))
+        {
+            hit = true;
+            Slow(); 
+        }
     }
 
     void OnCollisionExit2D(Collision2D col)
     {
         if (col.collider.CompareTag("Ground"))
-            grounded--;
+        {
+            grounded = false;
+        }
+        if (col.collider.CompareTag("Obsticale"))
+        {
+            hit = false;
+        }
     }
 }
