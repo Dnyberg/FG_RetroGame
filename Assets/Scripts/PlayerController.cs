@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float acceleration;
     public bool grounded;
     public int jumpheight;
-    
+
 
     [Header("Shooting")]
     public string fireKey = "Fire1";
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private float t = 0.0f;
     private Vector2 movement;
     private bool hit;
+
 
     #region Properties
 
@@ -41,9 +42,10 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-    
+
         rb2d = GetComponent<Rigidbody2D>();
         RateOfFire = rateOfFire;
+
     }
 
     void Update()
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton(fireKey))
         {
-            
+
             Shoot();
         }
     }
@@ -61,11 +63,11 @@ public class PlayerController : MonoBehaviour
     {
         if (lastTimeFired + timeBetweenShots <= Time.time)
         {
-         
+
             Bullet bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity)?.GetComponent<Bullet>();
             if (bullet != null)
             {
-              
+
                 bullet.Shoot();
             }
             else
@@ -84,20 +86,20 @@ public class PlayerController : MonoBehaviour
         //rb2d.AddForce(movement * speed);
         //Debug.Log(movement * speed);
 
-        rb2d. transform.Translate(Vector3.right * Time.deltaTime * speed);
+        rb2d.transform.Translate(Vector3.right * Time.deltaTime * speed);
 
         speed = speed + acceleration;
-        
+
 
         //rb2d.velocity = new Vector2(speed, t);
     }
 
     private void Slow()
     {
-       
-      
-         speed = speed - 1f;
-        
+
+
+        speed = speed - 1f;
+
     }
 
     private void Jump()
@@ -110,11 +112,11 @@ public class PlayerController : MonoBehaviour
                 moving = true;
                 t = 0.0f;
                 print("Jump");
-               
+
 
                 if (moving)
                 {
-                   
+
                     t = t + Time.deltaTime;
                     if (t > 1.0f)
                     {
@@ -132,15 +134,15 @@ public class PlayerController : MonoBehaviour
     {
         if (col.collider.CompareTag("Ground"))
         {
-        grounded = true;
+            grounded = true;
 
         }
 
 
-        if (col.collider.CompareTag("Obsticale"))
+        if (col.collider.CompareTag("Obstacle"))
         {
             hit = true;
-            Slow(); 
+            Slow();
         }
     }
 
@@ -150,7 +152,7 @@ public class PlayerController : MonoBehaviour
         {
             grounded = false;
         }
-        if (col.collider.CompareTag("Obsticale"))
+        if (col.collider.CompareTag("Obstacle"))
         {
             hit = false;
         }

@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+
     }
 
     /*public void PlaceCenterAboveObject(Bounds bounds)
