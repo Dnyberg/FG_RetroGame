@@ -5,20 +5,31 @@ using UnityEngine;
 public class PlatformGenrator : MonoBehaviour
 {
 
-    public GameObject thePlate;
+    public GameObject thePlatform;
+    //public GameObject[] thePlatforms;
     public Transform generationPoint;
     public float distanceBetween;
 
-    public ObjectPooler theObjectPool;
+    public ObjectPooler[] theObjectPools;
 
     private float platformWidth;
+    private int platformSelector;
+    private float[] platformWidths;
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        platformWidth = thePlate.GetComponent<BoxCollider2D>().size.x;
+        //platformWidth = thePlatform.GetComponent<BoxCollider2D>().size.x;
+
+        platformWidths = new float[theObjectPools.Length];
+
+        for (int i = 0; i < theObjectPools.Length; i++)
+        {
+            platformWidths[i] = theObjectPools[i].pooledObject.GetComponent<BoxCollider2D>().size.x;
+        }
     }
 
     // Update is called once per frame
@@ -26,10 +37,15 @@ public class PlatformGenrator : MonoBehaviour
     {
         if (transform.position.x < generationPoint.position.x)
         {
-            transform.position = new Vector3(transform.position.x + platformWidth + distanceBetween, transform.position.y, transform.position.y);
-            //Instantiate(thePlate, transform.position, transform.rotation);
+            platformSelector = Random.Range(0, theObjectPools.Length);
 
-            GameObject newPlatform = theObjectPool.GetPooledObject();
+            transform.position = new Vector3(transform.position.x + platformWidths[platformSelector] + distanceBetween, transform.position.y, transform.position.y);
+            
+
+            //Instantiate(/*thePlatform*/ thePlatforms[platformSelector], transform.position, transform.rotation);
+
+            GameObject newPlatform = theObjectPools[platformSelector].GetPooledObject();
+
             newPlatform.transform.position = transform.position;
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
