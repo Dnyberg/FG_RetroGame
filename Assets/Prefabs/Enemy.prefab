@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 6972163464701758849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 3121818049384499489}
   m_Father: {fileID: 0}
@@ -144,7 +144,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -167,6 +167,12 @@ MonoBehaviour:
   BoxObject: {fileID: 6028046696810140767, guid: 8ceedf11babde3f40b8e49c50f4586ce,
     type: 3}
   LaunchPoint: {fileID: 3121818049384499489}
-  VerticalSpeed: 0
+  DefaultVerticalSpeed: 15
+  DefaultHorizontalSpeed: 15
+  VerticalSpeed: 15
   HorizontalSpeed: 15
-  Health: 5
+  BoxTimerMax: 3
+  BoxTimer: 3
+  GrenadeTimerMax: 5
+  GrenadeTimer: 5
+  MaxHealth: 10

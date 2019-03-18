@@ -23,7 +23,7 @@ public class Grenade : MonoBehaviour
     {
         if (Moving)
         {
-            MyRigidBody2D.velocity = new Vector2(-MoveSpeed, MyRigidBody2D.velocity.x);
+            MyRigidBody2D.velocity = new Vector2(-MoveSpeed, MyRigidBody2D.velocity.y);
         }
 
         else
