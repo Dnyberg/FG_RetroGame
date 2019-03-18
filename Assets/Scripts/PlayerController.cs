@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private Collider2D myCollider;
+    private Animator MyAnimator;
     //private bool moving = false;
     //private float t = 0.0f;
     //private Vector2 movement;
@@ -50,6 +51,8 @@ public class PlayerController : MonoBehaviour
 
         myCollider = GetComponent<Collider2D>();
 
+        MyAnimator = GetComponent<Animator>();
+
         RateOfFire = rateOfFire;
 
     }
@@ -65,6 +68,10 @@ public class PlayerController : MonoBehaviour
 
             Shoot();
         }
+
+
+        MyAnimator.SetFloat("Speed", rb2d.velocity.x);
+        MyAnimator.SetBool("Grounded", grounded);
     }
 
     private void Shoot()
