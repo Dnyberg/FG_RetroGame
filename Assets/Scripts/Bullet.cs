@@ -5,12 +5,18 @@
 public class Bullet : MonoBehaviour
 {
     public float speed = 1f;
+    public float deathTime = 2f;
     private Rigidbody2D body;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
 
+    }
+
+    void Start()
+    {
+        Destroy(gameObject,deathTime);
     }
 
     /*public void PlaceCenterAboveObject(Bounds bounds)

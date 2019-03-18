@@ -10,20 +10,23 @@ public class PlayerController : MonoBehaviour
     public float acceleration;
     public bool grounded;
     public int jumpheight;
+    public LayerMask WhatIsGround;
 
 
     [Header("Shooting")]
     public string fireKey = "Fire1";
     public GameObject bulletPrefab;
     [SerializeField, Tooltip("Shots per minute.")] private float rateOfFire = 1f;
+    public Transform socket;
     private float timeBetweenShots;
     private float lastTimeFired;
 
     private Rigidbody2D rb2d;
-    private bool moving = false;
-    private float t = 0.0f;
-    private Vector2 movement;
-    private bool hit;
+    private Collider2D myCollider;
+    //private bool moving = false;
+    //private float t = 0.0f;
+    //private Vector2 movement;
+    //private bool hit;
 
 
     #region Properties
@@ -44,12 +47,17 @@ public class PlayerController : MonoBehaviour
     {
 
         rb2d = GetComponent<Rigidbody2D>();
+
+        myCollider = GetComponent<Collider2D>();
+
         RateOfFire = rateOfFire;
 
     }
 
     void Update()
     {
+        grounded = Physics2D.IsTouchingLayers(myCollider, WhatIsGround);
+
         Jump();
 
         if (Input.GetButton(fireKey))
@@ -64,7 +72,7 @@ public class PlayerController : MonoBehaviour
         if (lastTimeFired + timeBetweenShots <= Time.time)
         {
 
-            Bullet bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity)?.GetComponent<Bullet>();
+            Bullet bullet = Instantiate(bulletPrefab, socket.position, Quaternion.identity)?.GetComponent<Bullet>();
             if (bullet != null)
             {
 
@@ -86,12 +94,12 @@ public class PlayerController : MonoBehaviour
         //rb2d.AddForce(movement * speed);
         //Debug.Log(movement * speed);
 
-        rb2d.transform.Translate(Vector3.right * Time.deltaTime * speed);
+        //rb2d.transform.Translate(Vector3.right * Time.deltaTime * speed);
 
         speed = speed + acceleration;
 
 
-        //rb2d.velocity = new Vector2(speed, t);
+        rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
     }
 
     private void Slow()
@@ -108,7 +116,11 @@ public class PlayerController : MonoBehaviour
         {
             if (grounded == true)
             {
-                rb2d.velocity = new Vector2(0.0f, 1.0f * jumpheight);
+
+                rb2d.velocity = new Vector2(rb2d.velocity.x, jumpheight);
+                print("jump");
+                
+                /*rb2d.velocity = new Vector2(0.0f, 1.0f * jumpheight);
                 moving = true;
                 t = 0.0f;
                 print("Jump");
@@ -123,14 +135,14 @@ public class PlayerController : MonoBehaviour
                         Debug.Log(gameObject.transform.position.y + " : " + t);
                         t = 0.0f;
                     }
-                }
+                }*/
 
             }
 
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    /*void OnCollisionEnter2D(Collision2D col)
     {
         if (col.collider.CompareTag("Ground"))
         {
@@ -156,5 +168,5 @@ public class PlayerController : MonoBehaviour
         {
             hit = false;
         }
-    }
+    }*/
 }

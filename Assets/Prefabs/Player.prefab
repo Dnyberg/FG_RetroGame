@@ -98,7 +98,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 15
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -117,13 +117,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  acceleration: 0.1
-  grounded: 0
-  jumpheight: 26
+  acceleration: 0.01
+  grounded: 1
+  jumpheight: 50
+  WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
   fireKey: Fire1
   bulletPrefab: {fileID: 8986163075791038617, guid: 7feb5c7366a1bf048ae9ce00b9141d17,
     type: 3}
   rateOfFire: 50
+  socket: {fileID: 9117705934889796200}
 --- !u!60 &5389319011706354403
 PolygonCollider2D:
   m_ObjectHideFlags: 0
