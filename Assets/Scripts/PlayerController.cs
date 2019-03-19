@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public int jumpheight;
     public LayerMask WhatIsGround;
 
+    [SerializeField, Tooltip("Number of units it takes to speed up the player with ACCELERATION. ACCELERATION also increases this value.")] public float speedIncreaseMilestone;
+
 
     [Header("Shooting")]
     public string fireKey = "Fire1";
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     private Collider2D myCollider;
     private Animator MyAnimator;
+    private float speedMilestoneCount;
     //private bool moving = false;
     //private float t = 0.0f;
     //private Vector2 movement;
@@ -55,6 +58,8 @@ public class PlayerController : MonoBehaviour
 
         RateOfFire = rateOfFire;
 
+        speedMilestoneCount = speedIncreaseMilestone;
+
     }
 
     void Update()
@@ -68,6 +73,16 @@ public class PlayerController : MonoBehaviour
 
             Shoot();
         }
+
+        if (transform.position.x > speedMilestoneCount)
+        {
+            speedMilestoneCount += speedIncreaseMilestone;
+            speedIncreaseMilestone = speedIncreaseMilestone * acceleration;
+            speed = speed * acceleration;
+            MyAnimator.SetFloat("SpeedMultiplier", speed / 20f);
+        }
+
+        rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
 
 
         MyAnimator.SetFloat("Speed", rb2d.velocity.x);
@@ -94,7 +109,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
 
         //Vector2 movement = new Vector2(1f, 0f);
@@ -103,11 +118,10 @@ public class PlayerController : MonoBehaviour
 
         //rb2d.transform.Translate(Vector3.right * Time.deltaTime * speed);
 
-        speed = speed + acceleration;
+        //speed = speed + acceleration;
 
-
-        rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
-    }
+      
+    }*/
 
     private void Slow()
     {
