@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 1933035063157917306}
   - component: {fileID: 1933035063157917253}
   m_Layer: 5
-  m_Name: Score Label
+  m_Name: Distance Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: 0'
+  m_Text: 'Distance: 0'
 --- !u!1 &1933035063280106688
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,8 +454,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 11500000, guid: 36d310ecda1ac7d49bb10c50d4b8a7ab, type: 3}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

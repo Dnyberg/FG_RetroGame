@@ -9,8 +9,8 @@ TagManager:
   - Enemy
   - Bullet
   - Boundary
-  - Box
   - Grenade
+  - Block
   layers:
   - Default
   - TransparentFX

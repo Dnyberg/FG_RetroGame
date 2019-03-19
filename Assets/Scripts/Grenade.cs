@@ -52,13 +52,13 @@ public class Grenade : MonoBehaviour
 
 
             //TODO Deal Damage to Player    
-            if (playerHealth.currentHealth> 0)
+            if (playerHealth.currentHealth > 0)
             {
                 playerHealth.TakeDamage(AttackDamage);
                 Destroy(gameObject);
             }
 
-
+        }
     }
 
     void OnBecameInvisible()
