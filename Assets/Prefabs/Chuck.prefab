@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4211315073802722082}
   m_Layer: 0
   m_Name: Chuck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,6 +225,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: 3.8032918}
-  m_Size: {x: 2.56, y: 7.85}
+  m_Offset: {x: -0.01, y: 3.65}
+  m_Size: {x: 2.81, y: 7.43}
   m_Direction: 0
