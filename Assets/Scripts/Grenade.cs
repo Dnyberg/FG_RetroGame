@@ -9,13 +9,23 @@ public class Grenade : MonoBehaviour
     public float MoveSpeed;
     public bool Moving;
     public Vector2 ExplosionForce;
-    public int Damage;
+    public int AttackDamage;
+    PlayerHealth playerHealth;
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         MyRigidBody2D = GetComponent<Rigidbody2D>();
         MyCollider2D = GetComponent<CircleCollider2D>();
+    }
+
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = playerHealth.GetComponent<PlayerHealth>();
+
     }
 
     // Update is called once per frame
@@ -40,10 +50,12 @@ public class Grenade : MonoBehaviour
 
             collision.rigidbody.AddForceAtPosition(ExplosionForce, ImpactPoint);
 
-           //TODO Deal Damage to Player    
-            Debug.Log("Dealt Damage Amount: " + Damage);
-
-            Destroy(gameObject);
+            //TODO Deal Damage to Player    
+            if (playerHealth.currentHealth> 0)
+            {
+                playerHealth.TakeDamage(AttackDamage);
+                Destroy(gameObject);
+            }
         }
     }
 }

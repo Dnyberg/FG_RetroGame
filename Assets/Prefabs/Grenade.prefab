@@ -136,4 +136,4 @@ MonoBehaviour:
   MoveSpeed: 5
   Moving: 1
   ExplosionForce: {x: -9000, y: 0}
-  Damage: 1
+  AttackDamage: 50
