@@ -78,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
         //playerShooting.DisableEffects();
 
         // Tell the animator that the player is dead.
-        anim.SetTrigger("Die");
+       // anim.SetTrigger("Die");
 
         //Load scene 0 = mainmenu / firstscenespawner
         SceneManager.LoadScene(0);
