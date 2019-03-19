@@ -108,14 +108,31 @@ public class Enemy : MonoBehaviour
 
     void SpawnBox()
     {
-        Box SpawnedBox = Instantiate(BoxObject, LaunchPoint.position, Quaternion.identity)?.GetComponent<Box>();
-        Instantiate(BoxObject, LaunchPoint, true);     
+        Debug.Log("Spawn box");
+        // Box SpawnedBox = Instantiate(BoxObject, LaunchPoint.position, Quaternion.identity)?.GetComponent<Box>();
+        //Instantiate(BoxObject, LaunchPoint, true); 
+        GameObject SpawnedBox = TheCoolerObjectPooler.SharedInstance.GetPooledObject("Box");
+
+        if (SpawnedBox != null)
+        { 
+            SpawnedBox.transform.position = LaunchPoint.transform.position;
+            SpawnedBox.transform.rotation = LaunchPoint.transform.rotation;
+            SpawnedBox.SetActive(true);           
+        }
     }
 
     void SpawnGrenade()
     {
-        Grenade SpawnedGrenade = Instantiate(GrenadeObject, LaunchPoint.position, Quaternion.identity)?.GetComponent<Grenade>();
-        Instantiate(GrenadeObject, LaunchPoint, true);    
+        //Grenade SpawnedGrenade = Instantiate(GrenadeObject, LaunchPoint.position, Quaternion.identity)?.GetComponent<Grenade>();
+        //Instantiate(GrenadeObject, LaunchPoint, true);
+
+        GameObject SpawnedGrenade = TheCoolerObjectPooler.SharedInstance.GetPooledObject("Grenade");
+        if (SpawnedGrenade != null)
+        {
+            SpawnedGrenade.transform.position = LaunchPoint.transform.position;
+            SpawnedGrenade.transform.rotation = LaunchPoint.transform.rotation;
+            SpawnedGrenade.SetActive(true);
+        }
     }
 
     void TakeDamage()

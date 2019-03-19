@@ -8,6 +8,9 @@ TagManager:
   - Obstacle
   - Enemy
   - Bullet
+  - Boundary
+  - Box
+  - Grenade
   layers:
   - Default
   - TransparentFX

@@ -43,7 +43,12 @@ public class Grenade : MonoBehaviour
            //TODO Deal Damage to Player    
             Debug.Log("Dealt Damage Amount: " + Damage);
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+
+    void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
     }
 }

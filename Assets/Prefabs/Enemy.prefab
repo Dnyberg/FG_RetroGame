@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 5439372874286508388}
   - component: {fileID: 3169376942664651466}
   - component: {fileID: 2684930084277727594}
+  - component: {fileID: 4646171334278117967}
   - component: {fileID: 4949855443758510162}
   m_Layer: 0
   m_Name: Enemy
@@ -150,6 +151,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &4646171334278117967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972163464701758849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed4db2b60b4aae4aabf5db36ae5620b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjects: []
+  ObjectToPool: {fileID: 6028046696810140767, guid: 8ceedf11babde3f40b8e49c50f4586ce,
+    type: 3}
+  AmountToPool: 0
 --- !u!114 &4949855443758510162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +186,6 @@ MonoBehaviour:
   LaunchPoint: {fileID: 3121818049384499489}
   DefaultVerticalSpeed: 15
   DefaultHorizontalSpeed: 15
-  VerticalSpeed: 15
-  HorizontalSpeed: 15
   BoxTimerMax: 3
-  BoxTimer: 3
   GrenadeTimerMax: 5
-  GrenadeTimer: 5
   MaxHealth: 10
