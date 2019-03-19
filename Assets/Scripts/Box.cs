@@ -15,4 +15,9 @@ public class Box : MonoBehaviour
     {
         
     }
+
+    void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
+    }
 }

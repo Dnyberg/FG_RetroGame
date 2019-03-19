@@ -50,12 +50,19 @@ public class Grenade : MonoBehaviour
 
             collision.rigidbody.AddForceAtPosition(ExplosionForce, ImpactPoint);
 
+
             //TODO Deal Damage to Player    
             if (playerHealth.currentHealth> 0)
             {
                 playerHealth.TakeDamage(AttackDamage);
                 Destroy(gameObject);
             }
-        }
+
+
+    }
+
+    void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
     }
 }
