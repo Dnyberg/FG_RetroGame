@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float speed = 1f;
     public float deathTime = 2f;
     private Rigidbody2D body;
+    
 
     private void Awake()
     {
@@ -26,8 +27,11 @@ public class Bullet : MonoBehaviour
         body.position = position;
     }
     */
+
+
     public void Shoot()
     {
         body.velocity = Vector2.right * speed;
     }
+    
 }
