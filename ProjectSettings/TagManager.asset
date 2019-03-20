@@ -20,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - Enemy
+  - 
   - Ground
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Actors
+    uniqueID: 2810220059
     locked: 0

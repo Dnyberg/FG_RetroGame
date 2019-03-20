@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
 
     void SpawnBox()
     {
-        Debug.Log("Spawn box");
+        Debug.Log("Spawn block");
         // Box SpawnedBox = Instantiate(BoxObject, LaunchPoint.position, Quaternion.identity)?.GetComponent<Box>();
         //Instantiate(BoxObject, LaunchPoint, true); 
         GameObject SpawnedBox = TheCoolerObjectPooler.SharedInstance.GetPooledObject("Block");

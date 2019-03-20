@@ -23,8 +23,7 @@ public class Grenade : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = playerHealth.GetComponent<PlayerHealth>();
+
 
     }
 
@@ -50,6 +49,7 @@ public class Grenade : MonoBehaviour
 
             collision.rigidbody.AddForceAtPosition(ExplosionForce, ImpactPoint);
 
+            PlayerHealth PlayerHealthComp = collision.gameObject.GetComponent<PlayerHealth>();
 
             //TODO Deal Damage to Player    
             if (playerHealth.currentHealth > 0)
