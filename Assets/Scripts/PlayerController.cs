@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float speed;
     public float acceleration;
+    public float maxSpeed;
+    public float minSpeed;
     public bool grounded;
     public int jumpheight;
     public LayerMask WhatIsGround;
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     [SerializeField, Tooltip("Shots per minute.")] private float rateOfFire = 1f;
     public Transform socket;
+
     private float timeBetweenShots;
     private float lastTimeFired;
 
@@ -30,7 +33,7 @@ public class PlayerController : MonoBehaviour
     //private bool moving = false;
     //private float t = 0.0f;
     //private Vector2 movement;
-    //private bool hit;
+    private bool hit;
 
 
     #region Properties
@@ -78,7 +81,7 @@ public class PlayerController : MonoBehaviour
         {
             speedMilestoneCount += speedIncreaseMilestone;
             speedIncreaseMilestone = speedIncreaseMilestone * acceleration;
-            speed = speed * acceleration;
+            speed = Mathf.Clamp(speed, minSpeed, maxSpeed) * acceleration;
             MyAnimator.SetFloat("SpeedMultiplier", speed / 20f);
         }
 
@@ -87,6 +90,7 @@ public class PlayerController : MonoBehaviour
 
         MyAnimator.SetFloat("Speed", rb2d.velocity.x);
         MyAnimator.SetBool("Grounded", grounded);
+        //MyAnimator.SetBool("Hit", hit);
     }
 
     private void Shoot()

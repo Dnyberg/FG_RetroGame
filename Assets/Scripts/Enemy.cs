@@ -25,7 +25,8 @@ public class Enemy : MonoBehaviour
     private bool MovingUp = true;
     private Rigidbody2D MyRigidBody;
     private CircleCollider2D MyCollider;
-    private SpriteRenderer MySpriteRenderer;
+    //private SpriteRenderer MySpriteRenderer;
+    private MeshRenderer MyMeshRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,8 @@ public class Enemy : MonoBehaviour
 
         MyRigidBody = GetComponent<Rigidbody2D>();
         MyCollider = GetComponent<CircleCollider2D>();
-        MySpriteRenderer = GetComponent<SpriteRenderer>();
+        //MySpriteRenderer = GetComponent<SpriteRenderer>();
+        MyMeshRenderer = GetComponent<MeshRenderer>();
 
         Health = MaxHealth;
         BoxTimer = BoxTimerMax;
@@ -48,7 +50,7 @@ public class Enemy : MonoBehaviour
     {
         MyRigidBody.velocity = new Vector2(HorizontalSpeed, VerticalSpeed);
 
-        if (transform.position.y > StageDimensions.y - MySpriteRenderer.bounds.extents.y)
+        if (transform.position.y > StageDimensions.y - /*MySpriteRenderer*/ MyMeshRenderer.bounds.extents.y)
         {
             if (MovingUp)
             {

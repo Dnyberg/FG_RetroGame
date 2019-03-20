@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 531020949843258873}
   - component: {fileID: 2662500357976941862}
   - component: {fileID: 6614229559444348842}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: JUMP_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5789717727421294021}
   - component: {fileID: 5789717727421294020}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: ROCK_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 5789717727421294023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 35.15, y: -5.12, z: 2}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 3203605929011767514}
   m_RootOrder: 4
@@ -694,7 +694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5789717727893165832}
   - component: {fileID: 5789717727893165835}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: ROCK_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +710,7 @@ Transform:
   m_GameObject: {fileID: 5789717727893165834}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.07, y: -5.1, z: 2}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 3203605929011767514}
   m_RootOrder: 1
@@ -801,7 +801,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5789717728079773698}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -852,7 +852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5789717728868384775}
   - component: {fileID: 5789717728868384774}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SKYLINE (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1003,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7177867978196447820}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
