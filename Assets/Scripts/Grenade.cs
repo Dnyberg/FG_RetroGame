@@ -52,9 +52,9 @@ public class Grenade : MonoBehaviour
             PlayerHealth PlayerHealthComp = collision.gameObject.GetComponent<PlayerHealth>();
 
             //TODO Deal Damage to Player    
-            if (playerHealth.currentHealth > 0)
+            if (PlayerHealthComp.currentHealth > 0)
             {
-                playerHealth.TakeDamage(AttackDamage);
+                PlayerHealthComp.TakeDamage(AttackDamage);
                 Destroy(gameObject);
             }
 
