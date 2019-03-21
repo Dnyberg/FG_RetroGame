@@ -183,7 +183,10 @@ public class PlayerController : MonoBehaviour
 
         //Vector2 ImpactPoint = col.GetContact(0).point;
 
-        
+        if (col.collider.CompareTag("Grenade"))
+        {
+            hit = true;
+        }
 
 
         if (col.collider.CompareTag("Obstacle"))
@@ -202,10 +205,17 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D col)
     {
-       /* if (col.collider.CompareTag("Ground"))
+        /* if (col.collider.CompareTag("Ground"))
+         {
+             grounded = false;
+         }*/
+
+        if (col.collider.CompareTag("Grenade"))
         {
-            grounded = false;
-        }*/
+            hit = false;
+        }
+
+
         if (col.collider.CompareTag("Obstacle"))
         {
             hit = false;
