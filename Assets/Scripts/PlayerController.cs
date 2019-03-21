@@ -187,9 +187,8 @@ public class PlayerController : MonoBehaviour
 
         if (col.collider.CompareTag("Grenade"))
         {
-            hit = true;
-            Vector2 ImpactPoint = col.GetContact(0).point;
-            col.rigidbody.AddForceAtPosition(ExplosionVector, ImpactPoint);
+            //hit = true;
+
 
 
         }
@@ -198,7 +197,9 @@ public class PlayerController : MonoBehaviour
         if (col.collider.CompareTag("Obstacle"))
         {
             hit = true;
-            
+            Vector2 ImpactPoint = col.GetContact(0).point;
+            col.rigidbody.AddForceAtPosition(ExplosionVector, ImpactPoint);
+
             //speed = 0f;
             Debug.Log("Hit");
             //rb2d.velocity = new Vector2(-100f, rb2d.velocity.y);
@@ -220,7 +221,7 @@ public class PlayerController : MonoBehaviour
         if (col.collider.CompareTag("Grenade"))
         {
             Debug.Log("Hejhej");
-            hit = false;
+            //hit = false;
             
         }
 
