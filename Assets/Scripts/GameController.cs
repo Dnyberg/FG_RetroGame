@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
 
     public Text DistanceLabel;
     public Text GameOverLabel;
+    public Text VictoryLabel;
     public Button RestartGameButton;
 
     public GameObject Player;
@@ -44,6 +45,14 @@ public class GameController : MonoBehaviour
     //    CurrentScore += Increment;
     //    ScoreLabel.text = "Score: " + CurrentScore;
     //}
+
+
+    public void Victory()
+    {
+        Time.timeScale = 0;
+        VictoryLabel.rectTransform.anchoredPosition3D = new Vector3(0, 0, 0);
+        RestartGameButton.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, -50, 0);
+    }
 
     public void ShowGameOver()
     {
@@ -84,6 +93,15 @@ public class GameController : MonoBehaviour
             {
                 GameOver = true;
                 ShowGameOver();
+            }
+        }
+
+        if (CurrentDistance <= 5)
+        {
+            if (!GameOver)
+            {
+                GameOver = true;
+                Victory();
             }
         }
     }
