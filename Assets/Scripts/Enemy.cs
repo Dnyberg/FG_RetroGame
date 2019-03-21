@@ -236,14 +236,14 @@ public class Enemy : MonoBehaviour
                 VerticalSpeed = DefaultVerticalSpeed * 1.2f;
                 HorizontalSpeed = DefaultHorizontalSpeed * 1.2f;
                 BoxTimerMax = BoxTimerMax * 0.7f;
-                GrenadeTimerMax = GrenadeTimerMax * 0.7f;
+                GrenadeTimerMax = GrenadeTimerMax * 0.8f;
                 Debug.Log("Second Phase");
                     break;
                 case Phase.Final:
                 VerticalSpeed = DefaultVerticalSpeed * 1.5f;
                 HorizontalSpeed = DefaultHorizontalSpeed * 1.5f;
                 BoxTimerMax = BoxTimerMax * 0.5f;
-                GrenadeTimerMax = GrenadeTimerMax * 0.5f;
+                GrenadeTimerMax = GrenadeTimerMax * 0.6f;
                 Debug.Log("Final Phase");
                     break;
                 default:

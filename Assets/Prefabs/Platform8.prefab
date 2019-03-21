@@ -450,9 +450,9 @@ GameObject:
   - component: {fileID: 6419936111036816350}
   - component: {fileID: 5359378619281348952}
   - component: {fileID: 4072419419240460509}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -197,8 +197,8 @@ public class PlayerController : MonoBehaviour
         if (col.collider.CompareTag("Obstacle"))
         {
             hit = true;
-            Vector2 ImpactPoint = col.GetContact(0).point;
-            col.rigidbody.AddForceAtPosition(ExplosionVector, ImpactPoint);
+            //Vector2 ImpactPoint = col.GetContact(0).point;
+            //col.rigidbody.AddForceAtPosition(ExplosionVector, ImpactPoint);
 
             //speed = 0f;
             Debug.Log("Hit");
