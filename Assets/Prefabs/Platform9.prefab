@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4240268898815007604}
   - component: {fileID: 1834653199766852523}
   - component: {fileID: 1043703425822516912}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: JUMP_01 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

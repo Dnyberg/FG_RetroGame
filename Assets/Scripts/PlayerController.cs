@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask WhatIsGround;
 
     [SerializeField, Tooltip("Number of units it takes to speed up the player with ACCELERATION. ACCELERATION also increases this value.")] public float speedIncreaseMilestone;
-
+    public Vector2 hitForce;
+    
 
     [Header("Shooting")]
     public string fireKey = "Fire1";
@@ -90,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
         MyAnimator.SetFloat("Speed", rb2d.velocity.x);
         MyAnimator.SetBool("Grounded", grounded);
-        //MyAnimator.SetBool("Hit", hit);
+        MyAnimator.SetBool("Hit", hit);
     }
 
     private void Shoot()
@@ -127,13 +128,15 @@ public class PlayerController : MonoBehaviour
       
     }*/
 
-    private void Slow()
+    /*private void Hit()
     {
 
+        Vector2 ImpactPoint = collision.GetContact(0).point;
 
-        speed = speed - 1f;
+        rb2d.AddForceAtPosition(hitForce, ImpactPoint);
+        
 
-    }
+    }*/
 
     private void Jump()
     {
@@ -167,31 +170,37 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.collider.CompareTag("Ground"))
+        /*if (col.collider.CompareTag("Ground"))
         {
             grounded = true;
 
-        }
+        }*/
 
 
         if (col.collider.CompareTag("Obstacle"))
         {
             hit = true;
-            Slow();
+            Debug.Log("Hit");
+            Vector2 ImpactPoint = col.GetContact(0).point;
+
+            rb2d.AddForceAtPosition(hitForce, ImpactPoint);
+            //Hit();
+            speed = -15f;
         }
     }
 
     void OnCollisionExit2D(Collision2D col)
     {
-        if (col.collider.CompareTag("Ground"))
+       /* if (col.collider.CompareTag("Ground"))
         {
             grounded = false;
-        }
+        }*/
         if (col.collider.CompareTag("Obstacle"))
         {
             hit = false;
+            speed = 15f;
         }
-    }*/
+    }
 }
