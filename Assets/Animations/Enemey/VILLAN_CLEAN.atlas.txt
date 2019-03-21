@@ -1,0 +1,160 @@
+
+VILLAN_CLEAN.png
+size: 761,761
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ARMLOWER_FRONT
+  rotate: true
+  xy: 469, 342
+  size: 154, 160
+  orig: 154, 160
+  offset: 0, 0
+  index: -1
+ARM_BACK
+  rotate: true
+  xy: 631, 368
+  size: 128, 111
+  orig: 128, 111
+  offset: 0, 0
+  index: -1
+ARM_BACK_THROW
+  rotate: true
+  xy: 2, 7
+  size: 95, 145
+  orig: 95, 145
+  offset: 0, 0
+  index: -1
+ARM_UPPER_FRONT
+  rotate: false
+  xy: 598, 202
+  size: 138, 138
+  orig: 138, 138
+  offset: 0, 0
+  index: -1
+BELLY
+  rotate: false
+  xy: 2, 509
+  size: 509, 250
+  orig: 509, 250
+  offset: 0, 0
+  index: -1
+BODY
+  rotate: false
+  xy: 269, 344
+  size: 198, 163
+  orig: 198, 163
+  offset: 0, 0
+  index: -1
+BOMB
+  rotate: false
+  xy: 294, 188
+  size: 154, 154
+  orig: 154, 154
+  offset: 0, 0
+  index: -1
+CABLE_01
+  rotate: true
+  xy: 681, 605
+  size: 154, 62
+  orig: 154, 62
+  offset: 0, 0
+  index: -1
+CABLE_02
+  rotate: false
+  xy: 450, 109
+  size: 118, 94
+  orig: 118, 94
+  offset: 0, 0
+  index: -1
+ENGINE
+  rotate: false
+  xy: 2, 290
+  size: 265, 217
+  orig: 265, 217
+  offset: 0, 0
+  index: -1
+EYE
+  rotate: false
+  xy: 469, 498
+  size: 19, 9
+  orig: 19, 9
+  offset: 0, 0
+  index: -1
+FRONT_TURBINE
+  rotate: false
+  xy: 2, 104
+  size: 290, 184
+  orig: 290, 184
+  offset: 0, 0
+  index: -1
+HAND_BACK
+  rotate: false
+  xy: 553, 31
+  size: 67, 76
+  orig: 67, 76
+  offset: 0, 0
+  index: -1
+HAND_FRONT_NAT
+  rotate: false
+  xy: 570, 111
+  size: 118, 89
+  orig: 118, 89
+  offset: 0, 0
+  index: -1
+HAND_FRONT_THROW
+  rotate: true
+  xy: 149, 7
+  size: 95, 120
+  orig: 95, 120
+  offset: 0, 0
+  index: -1
+HAT
+  rotate: false
+  xy: 271, 8
+  size: 120, 52
+  orig: 120, 52
+  offset: 0, 0
+  index: -1
+HEAD
+  rotate: false
+  xy: 450, 205
+  size: 146, 135
+  orig: 146, 135
+  offset: 0, 0
+  index: -1
+Layer 77
+  rotate: false
+  xy: 294, 62
+  size: 147, 124
+  orig: 147, 124
+  offset: 0, 0
+  index: -1
+STICK_BACK
+  rotate: false
+  xy: 681, 511
+  size: 58, 92
+  orig: 58, 92
+  offset: 0, 0
+  index: -1
+STICK_FRONT
+  rotate: false
+  xy: 690, 108
+  size: 58, 92
+  orig: 58, 92
+  offset: 0, 0
+  index: -1
+SUSPENDER_FRONT
+  rotate: false
+  xy: 443, 2
+  size: 108, 105
+  orig: 108, 105
+  offset: 0, 0
+  index: -1
+TURBINE_BACK
+  rotate: true
+  xy: 513, 498
+  size: 261, 166
+  orig: 261, 166
+  offset: 0, 0
+  index: -1

@@ -7,8 +7,9 @@ public class Grenade : MonoBehaviour
     public Rigidbody2D MyRigidBody2D;
     public CircleCollider2D MyCollider2D;
     public float MoveSpeed;
-    public bool Moving;
-    public Vector2 ExplosionForce;
+    public bool MovingLeft;
+    public float ExplosionPower;
+    public float ExplosionRadius;
     public int AttackDamage;
     PlayerHealth playerHealth;
     GameObject player;
@@ -23,46 +24,64 @@ public class Grenade : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = playerHealth.GetComponent<PlayerHealth>();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Moving)
+        if (MovingLeft)
         {
             MyRigidBody2D.velocity = new Vector2(-MoveSpeed, MyRigidBody2D.velocity.y);
         }
 
         else
         {
-
-        }       
+            MyRigidBody2D.velocity = new Vector2(MoveSpeed, MyRigidBody2D.velocity.y);
+        }
     }
 
-     void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Vector2 ImpactPoint = collision.GetContact(0).point;
+           
 
-            collision.rigidbody.AddForceAtPosition(ExplosionForce, ImpactPoint);
+            PlayerController PlayerControllerComp = collision.gameObject.GetComponent<PlayerController>();
 
-
-            //TODO Deal Damage to Player    
-            if (playerHealth.currentHealth> 0)
+            if (PlayerControllerComp != null)
             {
-                playerHealth.TakeDamage(AttackDamage);
-                Destroy(gameObject);
+                //PlayerControllerComp.StopSpeedTemp();
             }
 
+            Vector2 ImpactPoint = collision.GetContact(0).point;
 
+            AddExplosionForce(collision.rigidbody, ExplosionPower, ImpactPoint, ExplosionRadius);
+            
+            //collision.rigidbody.AddForceAtPosition(ExplosionForce, ImpactPoint, ForceMode2D.Impulse);
+     
+            PlayerHealth PlayerHealthComp = collision.gameObject.GetComponent<PlayerHealth>();
+
+            if (PlayerHealthComp != null)
+            {
+                if (PlayerHealthComp.currentHealth > 0)
+                {
+                    PlayerHealthComp.TakeDamage(AttackDamage);                  
+                }
+            }
+            gameObject.SetActive(false);
+        }
     }
 
-    void OnBecameInvisible()
+    public static void AddExplosionForce(Rigidbody2D Body, float Force, Vector3 Position, float Radius)
     {
-        gameObject.SetActive(false);
+        var Direction = (Body.transform.position - Position);
+        float Calc = 1 - (Direction.magnitude / Radius);
+        if (Calc <= 0)
+        {
+            Calc = 0;
+        }
+        Body.AddForce(Direction.normalized * Force * Calc);
     }
 }

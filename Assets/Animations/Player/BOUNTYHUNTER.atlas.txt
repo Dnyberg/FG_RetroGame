@@ -1,0 +1,188 @@
+
+BOUNTYHUNTER.png
+size: 776,774
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ARM_LOWER_BACK
+  rotate: false
+  xy: 440, 72
+  size: 84, 88
+  orig: 84, 88
+  offset: 0, 0
+  index: -1
+ARM_LOWER_FRONT
+  rotate: false
+  xy: 526, 73
+  size: 77, 87
+  orig: 77, 87
+  offset: 0, 0
+  index: -1
+ARM_UPPER_BACK
+  rotate: true
+  xy: 447, 326
+  size: 198, 100
+  orig: 198, 100
+  offset: 0, 0
+  index: -1
+ARM_UPPER_FRONT
+  rotate: false
+  xy: 661, 339
+  size: 111, 186
+  orig: 111, 186
+  offset: 0, 0
+  index: -1
+BANDOOLIER
+  rotate: false
+  xy: 2, 500
+  size: 229, 272
+  orig: 229, 272
+  offset: 0, 0
+  index: -1
+BANDOOLIER_BEHIND
+  rotate: false
+  xy: 667, 569
+  size: 38, 84
+  orig: 38, 84
+  offset: 0, 0
+  index: -1
+FACE
+  rotate: false
+  xy: 2, 35
+  size: 152, 190
+  orig: 152, 190
+  offset: 0, 0
+  index: -1
+FOOT_BACK
+  rotate: false
+  xy: 336, 30
+  size: 78, 40
+  orig: 78, 40
+  offset: 0, 0
+  index: -1
+FOOT_FRONT
+  rotate: false
+  xy: 667, 527
+  size: 79, 40
+  orig: 79, 40
+  offset: 0, 0
+  index: -1
+HAND_BACK
+  rotate: false
+  xy: 475, 655
+  size: 240, 117
+  orig: 240, 117
+  offset: 0, 0
+  index: -1
+HAND_BEHIND
+  rotate: false
+  xy: 296, 244
+  size: 138, 90
+  orig: 138, 90
+  offset: 0, 0
+  index: -1
+HAND_FRONT
+  rotate: false
+  xy: 228, 36
+  size: 106, 189
+  orig: 106, 189
+  offset: 0, 0
+  index: -1
+HAT
+  rotate: false
+  xy: 475, 527
+  size: 190, 126
+  orig: 190, 126
+  offset: 0, 0
+  index: -1
+HAT_BEHIND
+  rotate: true
+  xy: 717, 598
+  size: 174, 57
+  orig: 174, 57
+  offset: 0, 0
+  index: -1
+HIP
+  rotate: true
+  xy: 440, 162
+  size: 162, 141
+  orig: 162, 141
+  offset: 0, 0
+  index: -1
+HOLSTER
+  rotate: false
+  xy: 336, 72
+  size: 102, 170
+  orig: 102, 170
+  offset: 0, 0
+  index: -1
+KNEE_BACK
+  rotate: true
+  xy: 605, 86
+  size: 81, 80
+  orig: 81, 80
+  offset: 0, 0
+  index: -1
+KNEE_FRONT
+  rotate: false
+  xy: 180, 227
+  size: 85, 70
+  orig: 85, 70
+  offset: 0, 0
+  index: -1
+LEG_LOWER_BACK
+  rotate: false
+  xy: 670, 181
+  size: 83, 156
+  orig: 83, 156
+  offset: 0, 0
+  index: -1
+LEG_LOWER_FRONT
+  rotate: false
+  xy: 583, 169
+  size: 85, 158
+  orig: 85, 158
+  offset: 0, 0
+  index: -1
+LEG_UPPER_BACK
+  rotate: false
+  xy: 549, 329
+  size: 110, 196
+  orig: 110, 196
+  offset: 0, 0
+  index: -1
+LEG_UPPER_FRONT
+  rotate: false
+  xy: 180, 299
+  size: 114, 199
+  orig: 114, 199
+  offset: 0, 0
+  index: -1
+PISTOL
+  rotate: true
+  xy: 2, 227
+  size: 271, 176
+  orig: 271, 176
+  offset: 0, 0
+  index: -1
+SCARF
+  rotate: true
+  xy: 296, 336
+  size: 188, 149
+  orig: 188, 149
+  offset: 0, 0
+  index: -1
+SHIRT_UNDER
+  rotate: true
+  xy: 156, 30
+  size: 195, 70
+  orig: 195, 70
+  offset: 0, 0
+  index: -1
+VEST
+  rotate: false
+  xy: 233, 526
+  size: 240, 246
+  orig: 240, 246
+  offset: 0, 0
+  index: -1
