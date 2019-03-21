@@ -139,8 +139,9 @@ MonoBehaviour:
     m_Bits: 4608
   speedIncreaseMilestone: 100
   hitForce: {x: -270.32, y: 0}
-  ExplosionPower: 0
-  ExplosionRadius: 0
+  ExplosionPower: 9000
+  ExplosionRadius: 100
+  ExplosionVector: {x: -9000, y: 0}
   fireKey: Fire1
   bulletPrefab: {fileID: 8986163075791038617, guid: 7feb5c7366a1bf048ae9ce00b9141d17,
     type: 3}
@@ -347,8 +348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
-  healthSlider: {fileID: 0}
-  damageImage: {fileID: 0}
+  healthSlider: {fileID: 3800629225025308886}
+  damageImage: {fileID: 3800629225931270711}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
 --- !u!1001 &4211315073106919396
@@ -482,3 +483,27 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4211315073106919396}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3800629225025308886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1067094296308692786, guid: eca0d6c2b2d17e54daf708bf327325bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 4211315073106919396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3800629225931270711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1067094296677635539, guid: eca0d6c2b2d17e54daf708bf327325bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 4211315073106919396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
