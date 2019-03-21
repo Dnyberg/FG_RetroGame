@@ -49,19 +49,23 @@ public class Grenade : MonoBehaviour
 
             collision.rigidbody.AddForceAtPosition(ExplosionForce, ImpactPoint);
 
-            PlayerHealth PlayerHealthComp = collision.gameObject.GetComponent<PlayerHealth>();
+            PlayerController PlayerControllerComp = collision.gameObject.GetComponent<PlayerController>();
 
+            if (PlayerControllerComp != null)
+            {
+                //PlayerControllerComp.speed = 0;
+            }
+
+            PlayerHealth PlayerHealthComp = collision.gameObject.GetComponent<PlayerHealth>();
 
             if (PlayerHealthComp != null)
             {
                 if (PlayerHealthComp.currentHealth > 0)
                 {
-                    PlayerHealthComp.TakeDamage(AttackDamage);
-                    Destroy(gameObject);
+                    PlayerHealthComp.TakeDamage(AttackDamage);                  
                 }
             }
-
-
+            Destroy(gameObject);
         }
     }
 
