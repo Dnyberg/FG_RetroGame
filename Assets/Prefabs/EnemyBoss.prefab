@@ -44,11 +44,11 @@ GameObject:
   - component: {fileID: 1347952335536932853}
   - component: {fileID: 1347952335536932852}
   - component: {fileID: 353772631424456250}
-  - component: {fileID: 3214495222251391280}
   - component: {fileID: 6630515642786853348}
+  - component: {fileID: 4845620658551578208}
   m_Layer: 0
   m_Name: EnemyBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,22 +188,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &3214495222251391280
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347952335536932851}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 3.06}
-  serializedVersion: 2
-  m_Radius: 3.16
 --- !u!114 &6630515642786853348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,3 +210,19 @@ MonoBehaviour:
   BoxTimerMax: 3
   GrenadeTimerMax: 5
   MaxHealth: 10
+--- !u!70 &4845620658551578208
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347952335536932851}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2736466, y: 3.3125432}
+  m_Size: {x: 6.069107, y: 4.9123716}
+  m_Direction: 1

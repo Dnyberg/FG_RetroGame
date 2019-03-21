@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     private float ScreenHeight;
     private bool MovingUp = true;
     private Rigidbody2D MyRigidBody;
-    private CircleCollider2D MyCollider;
+    private CapsuleCollider2D MyCollider;
     //private SpriteRenderer MySpriteRenderer;
     private MeshRenderer MyMeshRenderer;
 
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
         SetPhase(Phase.First);
 
         MyRigidBody = GetComponent<Rigidbody2D>();
-        MyCollider = GetComponent<CircleCollider2D>();
+        MyCollider = GetComponent<CapsuleCollider2D>();
         //MySpriteRenderer = GetComponent<SpriteRenderer>();
         MyMeshRenderer = GetComponent<MeshRenderer>();
 
