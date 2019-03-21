@@ -204,11 +204,15 @@ MonoBehaviour:
     type: 3}
   BoxObject: {fileID: 6028046696810140767, guid: 8c9c9a4707415e84cb391bb7826609b0,
     type: 3}
+  Player: {fileID: 4211315073802722088, guid: a7dd331455e2e0c4b85fe19684254028, type: 3}
   LaunchPoint: {fileID: 1188846844790162962}
   DefaultVerticalSpeed: 10
   DefaultHorizontalSpeed: 15
+  EscapeSpeed: 25
   BoxTimerMax: 3
   GrenadeTimerMax: 5
+  FleeDistance: 20
+  BoostFactor: 3
   MaxHealth: 10
 --- !u!70 &4845620658551578208
 CapsuleCollider2D:
