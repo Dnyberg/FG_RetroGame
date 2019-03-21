@@ -52,7 +52,7 @@ public class Grenade : MonoBehaviour
 
             if (PlayerControllerComp != null)
             {
-                PlayerControllerComp.StopSpeedTemp();
+                //PlayerControllerComp.StopSpeedTemp();
             }
 
             Vector2 ImpactPoint = collision.GetContact(0).point;
