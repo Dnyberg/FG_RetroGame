@@ -490,7 +490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190006851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.898214, y: -5.223999, z: -10}
+  m_LocalPosition: {x: 25.699392, y: -5.223999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 566174065}
@@ -4366,31 +4366,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4211315073802722080, guid: a7dd331455e2e0c4b85fe19684254028,
-        type: 3}
-      propertyPath: acceleration
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4211315073802722080, guid: a7dd331455e2e0c4b85fe19684254028,
-        type: 3}
-      propertyPath: speed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4211315073802722080, guid: a7dd331455e2e0c4b85fe19684254028,
-        type: 3}
-      propertyPath: ExplosionPower
-      value: 9000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4211315073802722080, guid: a7dd331455e2e0c4b85fe19684254028,
-        type: 3}
-      propertyPath: ExplosionRadius
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4211315073802722080, guid: a7dd331455e2e0c4b85fe19684254028,
-        type: 3}
-      propertyPath: ExplosionVector.x
-      value: -9000
-      objectReference: {fileID: 0}
     - target: {fileID: 3800629225065540055, guid: a7dd331455e2e0c4b85fe19684254028,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4611,7 +4586,7 @@ PrefabInstance:
     - target: {fileID: 8527446623758888761, guid: 910a579fc5005784e867aa7f151e7ef1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.898214
+      value: 25.699392
       objectReference: {fileID: 0}
     - target: {fileID: 8527446623758888761, guid: 910a579fc5005784e867aa7f151e7ef1,
         type: 3}
