@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     public float BoxTimerMax = 2.0f;
     public float GrenadeTimerMax;
     public float FleeDistance = 20;
+    public float BoostFactor = 3;
     public int MaxHealth = 10;
 
     private Phase CurrentPhase;
@@ -68,7 +69,7 @@ public class Enemy : MonoBehaviour
         if (Boosting)
         {
             BoostTimer -= Time.deltaTime;
-            MyRigidBody.velocity = new Vector2(HorizontalSpeed * 3, VerticalSpeed);
+            MyRigidBody.velocity = new Vector2(DefaultHorizontalSpeed * BoostFactor, VerticalSpeed);
             if (BoostTimer <= 0)
             {
                 Boosting = false;
