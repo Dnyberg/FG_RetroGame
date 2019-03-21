@@ -212,12 +212,14 @@ public class PlayerController : MonoBehaviour
 
         if (col.collider.CompareTag("Grenade"))
         {
+            Debug.Log("Hejhej");
             hit = false;
         }
 
 
         if (col.collider.CompareTag("Obstacle"))
         {
+            Debug.Log("Hejhej");
             hit = false;
             //speed = 15f;
         }
