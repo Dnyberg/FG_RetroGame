@@ -53,8 +53,12 @@ public class GameController : MonoBehaviour
     }
 
     public void RestartGame()
-    {
-        SceneManager.LoadScene(LevelToLoad);
+    {    
+        if (LevelToLoad != null)
+        {
+            SceneManager.LoadScene(LevelToLoad);
+            Time.timeScale = 1;
+        }
     }
 
     void UpdateDistance()

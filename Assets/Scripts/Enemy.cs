@@ -110,7 +110,6 @@ public class Enemy : MonoBehaviour
 
     void SpawnBox()
     {
-        Debug.Log("Spawn block");
         // Box SpawnedBox = Instantiate(BoxObject, LaunchPoint.position, Quaternion.identity)?.GetComponent<Box>();
         //Instantiate(BoxObject, LaunchPoint, true); 
         GameObject SpawnedBox = TheCoolerObjectPooler.SharedInstance.GetPooledObject("Block");
@@ -144,7 +143,6 @@ public class Enemy : MonoBehaviour
         if (Health <= MaxHealth/2)
         {
             SetPhase(Phase.Second);
-
         }
 
       else if (Health <= MaxHealth/3)
