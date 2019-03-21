@@ -136,9 +136,10 @@ MonoBehaviour:
   MyCollider2D: {fileID: 0}
   MoveSpeed: 5
   MovingLeft: 1
-  ExplosionPower: 50000
+  ExplosionPower: 9000
   ExplosionRadius: 100
-  AttackDamage: 1
+  AttackDamage: 15
+  ExplosionVector: {x: -9000, y: 0}
 --- !u!114 &2352249144106654649
 MonoBehaviour:
   m_ObjectHideFlags: 0

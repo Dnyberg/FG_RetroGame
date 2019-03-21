@@ -11,6 +11,7 @@ public class Grenade : MonoBehaviour
     public float ExplosionPower;
     public float ExplosionRadius;
     public int AttackDamage;
+    public Vector2 ExplosionVector;
     PlayerHealth playerHealth;
     GameObject player;
 
@@ -19,13 +20,6 @@ public class Grenade : MonoBehaviour
     {
         MyRigidBody2D = GetComponent<Rigidbody2D>();
         MyCollider2D = GetComponent<CircleCollider2D>();
-    }
-
-
-    private void Awake()
-    {
-
-
     }
 
     // Update is called once per frame
@@ -45,31 +39,31 @@ public class Grenade : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
-           
+           {
 
-            PlayerController PlayerControllerComp = collision.gameObject.GetComponent<PlayerController>();
+            //PlayerController PlayerControllerComp = collision.gameObject.GetComponent<PlayerController>();
 
-            if (PlayerControllerComp != null)
-            {
-                //PlayerControllerComp.StopSpeedTemp();
-            }
+            //if (PlayerControllerComp != null)
+            //{
 
-            Vector2 ImpactPoint = collision.GetContact(0).point;
+            //}
 
-            AddExplosionForce(collision.rigidbody, ExplosionPower, ImpactPoint, ExplosionRadius);
-            
-            //collision.rigidbody.AddForceAtPosition(ExplosionForce, ImpactPoint, ForceMode2D.Impulse);
-     
             PlayerHealth PlayerHealthComp = collision.gameObject.GetComponent<PlayerHealth>();
 
             if (PlayerHealthComp != null)
             {
                 if (PlayerHealthComp.currentHealth > 0)
                 {
-                    PlayerHealthComp.TakeDamage(AttackDamage);                  
+                    PlayerHealthComp.TakeDamage(AttackDamage);
                 }
             }
+
+            Vector2 ImpactPoint = collision.GetContact(0).point;
+
+          //  AddExplosionForce(collision.rigidbody, ExplosionPower, ImpactPoint, ExplosionRadius);
+
+            collision.rigidbody.AddForceAtPosition(ExplosionVector, ImpactPoint);
+
             gameObject.SetActive(false);
         }
     }

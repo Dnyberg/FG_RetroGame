@@ -205,7 +205,7 @@ MonoBehaviour:
   BoxObject: {fileID: 6028046696810140767, guid: 8c9c9a4707415e84cb391bb7826609b0,
     type: 3}
   LaunchPoint: {fileID: 1188846844790162962}
-  DefaultVerticalSpeed: 15
+  DefaultVerticalSpeed: 10
   DefaultHorizontalSpeed: 15
   BoxTimerMax: 3
   GrenadeTimerMax: 5
