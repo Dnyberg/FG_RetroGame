@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    //Kimber was here, event for player death to notify game controller
+    public delegate void DeathAction();
+    public static event DeathAction OnDeath;
+
     public int startingHealth = 100;   // The amount of health the player starts the game with.
     public int currentHealth;  // The current health the player has.
     public Slider healthSlider;       // Reference to the UI's health bar.
@@ -73,18 +77,23 @@ public class PlayerHealth : MonoBehaviour
         // Set the death flag so this function won't be called again.
         isDead = true;
 
-
         //// Turn off any remaining shooting effects.
         //playerShooting.DisableEffects();
 
         // Tell the animator that the player is dead.
-       // anim.SetTrigger("Die");
+        // anim.SetTrigger("Die");
 
-        //Load scene 0 = mainmenu / firstscenespawner
-        SceneManager.LoadScene(0);
+
+        //I claim this in the name of the gamecontroller - Kimber
+        //Load scene 0 = mainmenu / firstscenespawner 
+        //SceneManager.LoadScene(0);
 
         // Turn off the movement and shooting scripts.
         //playerMovement.enabled = false;
         //playerShooting.enabled = false;
+
+        //Call subscribers to event
+        if (OnDeath != null)
+            OnDeath();
     }
 }

@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     public float LoseDistance = 200;
     public string LevelToLoad;
 
-
+    private bool GameOver = false;
     private int IntCurrentDistance = 0;
     private float CurrentDistance = 0;
 
@@ -26,6 +26,17 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         SharedInstance = this;
+    }
+
+    void OnEnable()
+    {
+        PlayerHealth.OnDeath += ShowGameOver;
+    }
+
+
+    void OnDisable()
+    {
+        PlayerHealth.OnDeath -= ShowGameOver;
     }
 
     //public void IncrementScore(int Increment)
@@ -62,14 +73,20 @@ public class GameController : MonoBehaviour
         {
             DistanceLabel.enabled = false;
         }
+
+        if (CurrentDistance >= LoseDistance)
+        {
+            if (!GameOver)
+            {
+                GameOver = true;
+                ShowGameOver();
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateDistance();
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-            ShowGameOver();
     }
 }

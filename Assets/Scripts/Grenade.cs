@@ -38,10 +38,10 @@ public class Grenade : MonoBehaviour
         else
         {
 
-        }       
+        }
     }
 
-     void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -51,12 +51,16 @@ public class Grenade : MonoBehaviour
 
             PlayerHealth PlayerHealthComp = collision.gameObject.GetComponent<PlayerHealth>();
 
-            //TODO Deal Damage to Player    
-            if (PlayerHealthComp.currentHealth > 0)
+
+            if (PlayerHealthComp != null)
             {
-                PlayerHealthComp.TakeDamage(AttackDamage);
-                Destroy(gameObject);
+                if (PlayerHealthComp.currentHealth > 0)
+                {
+                    PlayerHealthComp.TakeDamage(AttackDamage);
+                    Destroy(gameObject);
+                }
             }
+
 
         }
     }
