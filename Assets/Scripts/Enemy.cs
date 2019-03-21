@@ -11,11 +11,14 @@ public class Enemy : MonoBehaviour
 
     public GameObject GrenadeObject;
     public GameObject BoxObject;
+    public GameObject Player;
     public Transform LaunchPoint;
     public float DefaultVerticalSpeed = 15.0f;
     public float DefaultHorizontalSpeed = 15.0f;
-    public float BoxTimerMax;
+    public float EscapeSpeed = 25.0f;
+    public float BoxTimerMax = 2.0f;
     public float GrenadeTimerMax;
+    public float FleeDistance = 20;
     public int MaxHealth = 10;
 
     private Phase CurrentPhase;
@@ -25,6 +28,8 @@ public class Enemy : MonoBehaviour
     private float BlinkTimer;
     private float BlinkTimerMax = 0.1f;
     private bool Blinking = false;
+    private bool Boosting = false;
+    private float BoostTimer = 1.0f;
     private int BlinkCounter = 0;
     private float VerticalSpeed;
     private float HorizontalSpeed;
@@ -56,7 +61,29 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!Boosting)
         MyRigidBody.velocity = new Vector2(HorizontalSpeed, VerticalSpeed);
+
+        if (Boosting)
+        {
+            BoostTimer -= Time.deltaTime;
+            MyRigidBody.velocity = new Vector2(HorizontalSpeed * 3, VerticalSpeed);
+            if (BoostTimer <= 0)
+            {
+                Boosting = false;
+            }
+        }
+            
+
+        if (transform.position.x - Player.transform.position.x <= FleeDistance)
+        {
+            if (!Boosting)
+            {
+                Boosting = true;
+                BoostTimer = BoxTimerMax;
+            }  
+        }
 
         if (transform.position.y > StageDimensions.y -  MyMeshRenderer.bounds.extents.y)
         {
@@ -66,7 +93,6 @@ public class Enemy : MonoBehaviour
                 ChangeVerticalDirection();
             }
         }
-
         //BoxTimer -= Time.deltaTime;
 
         //if (BoxTimer <= 0)
@@ -89,12 +115,6 @@ public class Enemy : MonoBehaviour
         {
             Blink();
         }
-
-        if (Input.GetKeyDown(KeyCode.Delete))
-        {
-            TakeDamage();
-        }
-
     }
 
     void ChangeVerticalDirection()

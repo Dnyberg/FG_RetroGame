@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public delegate void EscapeAction();
+    public static event EscapeAction OnEscape;
+
     public static GameController SharedInstance;
 
     public Text DistanceLabel;
@@ -101,15 +104,6 @@ public class GameController : MonoBehaviour
             {
                 GameOver = true;
                 ShowGameOver();
-            }
-        }
-
-        if (CurrentDistance <= 5)
-        {
-            if (!GameOver)
-            {
-                GameOver = true;
-                Victory();
             }
         }
     }
