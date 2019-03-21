@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     public Button RestartGameButton;
 
     public GameObject Player;
-    public GameObject Enemy;
+    public GameObject BossEnemy;
 
     public float LoseDistance = 200;
     public string LevelToLoad;
@@ -32,12 +32,14 @@ public class GameController : MonoBehaviour
     void OnEnable()
     {
         PlayerHealth.OnDeath += ShowGameOver;
+        Enemy.OnBossDeath += Victory;
     }
 
 
     void OnDisable()
     {
         PlayerHealth.OnDeath -= ShowGameOver;
+        Enemy.OnBossDeath -= Victory;
     }
 
     //public void IncrementScore(int Increment)
@@ -46,6 +48,12 @@ public class GameController : MonoBehaviour
     //    ScoreLabel.text = "Score: " + CurrentScore;
     //}
 
+
+    public void MoveToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
+    }
 
     public void Victory()
     {
@@ -73,9 +81,9 @@ public class GameController : MonoBehaviour
     void UpdateDistance()
     {
         Vector3 StageDimensions = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        CurrentDistance = Enemy.transform.position.x - Player.transform.position.x;
+        CurrentDistance = BossEnemy.transform.position.x - Player.transform.position.x;
 
-        if (Enemy.transform.position.x > StageDimensions.x)
+        if (BossEnemy.transform.position.x > StageDimensions.x)
         {
             DistanceLabel.enabled = true;        
             IntCurrentDistance = Mathf.RoundToInt(CurrentDistance);

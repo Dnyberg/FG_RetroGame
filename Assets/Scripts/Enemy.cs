@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public delegate void BossDeathAction();
+    public static event BossDeathAction OnBossDeath;
+
     public enum Phase { First, Second, Final }
 
     public GameObject GrenadeObject;
@@ -153,16 +156,22 @@ public class Enemy : MonoBehaviour
     {
         Health -= 1;
 
-        if (Health <= MaxHealth / 3)
+        if (Health <= MaxHealth * 0.33)
         {
             CurrentPhase = Phase.Final;
             SetPhase();
         }
 
-       else if (Health <= MaxHealth/2)
+       else if (Health <= MaxHealth * 0.66)
         {
             CurrentPhase = Phase.Second;
             SetPhase();
+        }
+
+        if (Health <= 0)
+        {
+            if (OnBossDeath != null)
+                OnBossDeath();
         }
 
         Blinking = true;

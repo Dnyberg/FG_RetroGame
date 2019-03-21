@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 hitForce;
     public float ExplosionPower;
     public float ExplosionRadius;
+    public Vector2 ExplosionVector;
 
 
     [Header("Shooting")]
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private float timeBetweenShots;
     private float lastTimeFired;
+
 
     private Rigidbody2D rb2d;
     private Collider2D myCollider;
@@ -186,12 +188,17 @@ public class PlayerController : MonoBehaviour
         if (col.collider.CompareTag("Grenade"))
         {
             hit = true;
+            Vector2 ImpactPoint = col.GetContact(0).point;
+            col.rigidbody.AddForceAtPosition(ExplosionVector, ImpactPoint);
+
+
         }
 
 
         if (col.collider.CompareTag("Obstacle"))
         {
             hit = true;
+            
             //speed = 0f;
             Debug.Log("Hit");
             //rb2d.velocity = new Vector2(-100f, rb2d.velocity.y);
@@ -214,6 +221,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Hejhej");
             hit = false;
+            
         }
 
 
