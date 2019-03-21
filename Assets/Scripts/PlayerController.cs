@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Tooltip("Number of units it takes to speed up the player with ACCELERATION. ACCELERATION also increases this value.")] public float speedIncreaseMilestone;
     public Vector2 hitForce;
-    
+    public float ExplosionPower;
+    public float ExplosionRadius;
+
 
     [Header("Shooting")]
     public string fireKey = "Fire1";
@@ -177,17 +179,24 @@ public class PlayerController : MonoBehaviour
             grounded = true;
 
         }*/
+        //PlayerController PlayerControllerComp = col.gameObject.GetComponent<PlayerController>();
+
+        //Vector2 ImpactPoint = col.GetContact(0).point;
+
+        
 
 
         if (col.collider.CompareTag("Obstacle"))
         {
             hit = true;
+            //speed = 0f;
             Debug.Log("Hit");
-            Vector2 ImpactPoint = col.GetContact(0).point;
+            //rb2d.velocity = new Vector2(-100f, rb2d.velocity.y);
 
-            rb2d.AddForceAtPosition(hitForce, ImpactPoint);
+            //AddExplosionForce(col.rigidbody, ExplosionPower, ImpactPoint, ExplosionRadius);
+            //rb2d.AddForceAtPosition(hitForce, ImpactPoint);
             //Hit();
-            speed = -15f;
+            //  rb2d.transform.Translate(Vector3.right * Time.deltaTime * -100f);
         }
     }
 
@@ -200,7 +209,18 @@ public class PlayerController : MonoBehaviour
         if (col.collider.CompareTag("Obstacle"))
         {
             hit = false;
-            speed = 15f;
+            //speed = 15f;
         }
+    }
+
+    public static void AddExplosionForce(Rigidbody2D rb2d, float Force, Vector3 Position, float Radius)
+    {
+        var Direction = (rb2d.transform.position - Position);
+        float Calc = 1 - (Direction.magnitude / Radius);
+        if (Calc <= 0)
+        {
+            Calc = 0;
+        }
+        rb2d.AddForce(Direction.normalized * Force * Calc);
     }
 }
