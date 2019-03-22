@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
     private CapsuleCollider2D MyCollider;
     private MeshRenderer MyMeshRenderer;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +82,7 @@ public class Enemy : MonoBehaviour
         {
             if (!Boosting)
             {
+
                 Boosting = true;
                 BoostTimer = BoxTimerMax;
             }  
@@ -235,15 +237,15 @@ public class Enemy : MonoBehaviour
                 case Phase.Second:
                 VerticalSpeed = DefaultVerticalSpeed * 1.2f;
                 HorizontalSpeed = DefaultHorizontalSpeed * 1.2f;
-                BoxTimerMax = BoxTimerMax * 0.7f;
+                BoxTimerMax = BoxTimerMax * 1f;
                 GrenadeTimerMax = GrenadeTimerMax * 0.8f;
                 Debug.Log("Second Phase");
                     break;
                 case Phase.Final:
                 VerticalSpeed = DefaultVerticalSpeed * 1.5f;
                 HorizontalSpeed = DefaultHorizontalSpeed * 1.5f;
-                BoxTimerMax = BoxTimerMax * 0.5f;
-                GrenadeTimerMax = GrenadeTimerMax * 0.6f;
+                BoxTimerMax = BoxTimerMax * 1f;
+                GrenadeTimerMax = GrenadeTimerMax * 0.65f;
                 Debug.Log("Final Phase");
                     break;
                 default:
