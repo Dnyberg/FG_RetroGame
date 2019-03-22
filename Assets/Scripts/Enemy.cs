@@ -179,13 +179,13 @@ public class Enemy : MonoBehaviour
     {
         Health -= 1;
 
-        if (Health <= MaxHealth * 0.33)
+        if (Health <= MaxHealth * 0.25)
         {
             CurrentPhase = Phase.Final;
             SetPhase();
         }
 
-       else if (Health <= MaxHealth * 0.66)
+       else if (Health <= MaxHealth * 0.75)
         {
             CurrentPhase = Phase.Second;
             SetPhase();
@@ -238,7 +238,7 @@ public class Enemy : MonoBehaviour
                 VerticalSpeed = DefaultVerticalSpeed * 1.2f;
                 HorizontalSpeed = DefaultHorizontalSpeed * 1.2f;
                 BoxTimerMax = BoxTimerMax * 1f;
-                GrenadeTimerMax = GrenadeTimerMax * 0.8f;
+                GrenadeTimerMax = GrenadeTimerMax * 0.75f;
                 Debug.Log("Second Phase");
                     break;
                 case Phase.Final:

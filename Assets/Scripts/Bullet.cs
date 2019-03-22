@@ -28,8 +28,17 @@ public class Bullet : MonoBehaviour
     }
     */
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
 
-    public void Shoot()
+        if (collision.gameObject.CompareTag("Grenade"))
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+        public void Shoot()
     {
         body.velocity = Vector2.right * speed;
     }
